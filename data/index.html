@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width= device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<title>Links</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet" as="font"  crossorigin="anonymous">
+<link rel="stylesheet" rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin=""/>
+<link rel="stylesheet" type="text/css" href="/Stack/acuu/link.css">
+</head>
+<body class="body">
+
+<div class="setting-tile">
+<li><p>Settings</p> <i class="fa fa-close settings-close"></i></li>
+<p class="settings-weather"></p>
+<p class="settings-link" data-link="01">Now</p>
+<p class="settings-link" data-link="02">Hourly</p>
+<p class="settings-link" data-link="03">Daily</p>
+<p class="settings-link" data-link="04">Radar</p>
+<p class="settings-link" data-link="05">Air Quality</p>
+<li><p>Units</p> <span class="metric-display"><p>Metric(U+00B0C, Km/H, Mm)</p><i class="fa fa-angle-down"></i></span></li>
+<div role="checkbox" class="metric">
+<span data-metric ="01">Imperial (F, mph, in)</span>
+<span data-metric="02">Metric(&8451, Km/H, Mm)</span>
+</div>
+</div>
+
+
+<nav>
+<div>
+<a href="#">AcuuWeather</a>
+<span class="nav-loc">
+<span class="city">City, state</span>
+<span class="city-temp">Temp</span>
+<img class="city-icon">
+</span>
+</div>
+
+<div>
+<div class="search">
+<i class="fa fa-search"></i>
+<input type="text" name="search" placeholder="Search location" class="nav-input">
+</div>
+<div class="menu-button">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</nav>
+
+
+
+<div>
+<div class="links-wrapper">
+<ul class="links">
+<li id="now" data-link="01">NOW</li>
+<li id="hour" data-link="02">HOURLY</li>
+<li id="daily" data-link="03">DAILY</li>
+<li id="radar" data-link="04">RADAR</li>
+<li id="airquality" data-link="05">AIR QUALITY</li>
+<li id="news" data-link="07">NEWS</li>
+
+</ul>
+</div>
+
+<div class="container">
+
+<div class="column-one">
+
+
+
+<div class="search-column active">
+
+</div>
+
+
+<div class="now-column link-column" data-link="01">
+<div class="current-weather">
+<h3>CURRENT WEATHER</h3>
+<p class="time"></p>
+<div class="current-weather--display">
+<div>
+<img class="now-icon">
+<span class="now-temp"></span>
+<span class="temp-unit"></span>
+</div>
+<div>
+<li><span>Air Quality</span><span class="now-airqua"></span></li>
+<li><span>Wind</span><span class="wind"></span></li>
+<li><span>Wind Gusts</span><span class="wind-gust"></span></li>
+</div>
+</div>
+
+<div>
+<p class="weather-text"></p>
+<span class="more-details" data-link="05">MORE DETAILS <i class="fa fa-arrow-right"></i></span>
+</div>
+
+</div>
+
+<div class="current-air-quality">
+<h3>CURRENT AIR QUALITY</h3>
+<div>
+<div class="airqua-number"></div>
+<div>
+<span class="currentairquality-colour"></span>
+<h4 class="currentair-qua"></h4>
+<p class="currentair-text"></p>
+</div>
+</div>
+</div>
+
+<div class="today-forecast">
+<h4>TODAY WEATHER FORECAST</h4>
+<div>
+<span><img class="today-icon"><span>29</span></span>
+<span>Text</span></div>
+</div>
+
+<div class="tonight-forecast">
+<h4>TONIGHT'S WEATHER FORECAST</h4>
+<div>
+<span><img class="tonight-icon"><span>29</span></span>
+<span>Text</span></div>
+</div>
+
+<div class="tomorrow-forecast">
+<h4>TOMORROW WEATHER FORECAST</h4>
+<div>
+<span><img class="tomorrow-icon"><span>29</span></span>
+<span>Text</span></div>
+</div>
+
+</div>
+
+
+
+<div class="hourly-column link-column" data-link="02">
+<div class="hour-now hour">
+<div class="first" data-slide="01">
+<span>Time</span>
+<img class="hour-icon">
+<span>Temp</span>
+<span>Value</span>
+<span>drop %</span>
+<span><i class="fa fa-angle-down hour-angledown"></i></span>
+</div>
+<div class="hour-slide" data-slide="01">
+<ul class="second">
+<li><span>Rain</span><span>Value</span></li>
+<li><span>Max UV Index</span><span>Value</span></li>
+<li><span>Wind</span><span>Value</span></li>
+<li><span>Wind Gusts</span><span>Value</span></li>
+<li><span>Humidity</span><span>Value</span></li>
+</ul>
+
+<ul class="third">
+<li><span>Indoor Humidity</span><span>Value</span></li>
+<li><span>Dew Point</span><span>Value</span></li>
+<li><span>Cloud Cover</span><span>Value</span></li>
+<li><span>Visibility</span><span>Value</span></li>
+<li><span>Cloud Ceiling</span><span>Value</span></li>
+</ul>
+</div>
+</div>
+
+<div class="one-hour hour">
+<div class="first" data-slide="02">
+<span>Time</span>
+<img class="hour-icon">
+<span>Temp</span>
+<span>Value</span>
+<span>drop %</span>
+<span><i class="fa fa-angle-down hour-angledown"></i></span>
+</div>
+<div class="hour-slide" data-slide="02">
+<ul class="second">
+<li><span>Rain</span><span>Value</span></li>
+<li><span>Max UV Index</span><span>Value</span></li>
+<li><span>Wind</span><span>Value</span></li>
+<li><span>Wind Gusts</span><span>Value</span></li>
+<li><span>Humidity</span><span>Value</span></li>
+</ul>
+        
+<ul class="third">
+<li><span>Indoor Humidity</span><span>Value</span></li>
+<li><span>Dew Point</span><span>Value</span></li>
+<li><span>Cloud Cover</span><span>Value</span></li>
+<li><span>Visibility</span><span>Value</span></li>
+<li><span>Cloud Ceiling</span><span>Value</span></li>
+</ul>
+</div>
+</div>
+
+<div class="two-hour hour">
+<div class="first" data-slide="03">
+<span>Time</span>
+<img class="hour-icon">
+<span>Temp</span>
+<span>Value</span>
+<span>drop %</span>
+<span><i class="fa fa-angle-down hour-angledown"></i></span>
+</div>
+<div class="hour-slide" data-slide="03">
+<ul class="second">
+<li><span>Rain</span><span>Value</span></li>
+<li><span>Max UV Index</span><span>Value</span></li>
+<li><span>Wind</span><span>Value</span></li>
+<li><span>Wind Gusts</span><span>Value</span></li>
+<li><span>Humidity</span><span>Value</span></li>
+</ul>
+                
+<ul class="third">
+<li><span>Indoor Humidity</span><span>Value</span></li>
+<li><span>Dew Point</span><span>Value</span></li>
+<li><span>Cloud Cover</span><span>Value</span></li>
+<li><span>Visibility</span><span>Value</span></li>
+<li><span>Cloud Ceiling</span><span>Value</span></li>
+</ul>
+</div>
+</div>
+
+<div class="three-hour hour">
+<div class="first" data-slide="04">
+<span>Time</span>
+<img class="hour-icon">
+<span>Temp</span>
+<span>Value</span>
+<span>drop %</span>
+<span><i class="fa fa-angle-down hour-angledown"></i></span>
+</div>
+<div class="hour-slide" data-slide="04">
+<ul class="second">
+<li><span>Rain</span><span>Value</span></li>
+<li><span>Max UV Index</span><span>Value</span></li>
+<li><span>Wind</span><span>Value</span></li>
+<li><span>Wind Gusts</span><span>Value</span></li>
+<li><span>Humidity</span><span>Value</span></li>
+</ul>
+                
+<ul class="third">
+<li><span>Indoor Humidity</span><span>Value</span></li>
+<li><span>Dew Point</span><span>Value</span></li>
+<li><span>Cloud Cover</span><span>Value</span></li>
+<li><span>Visibility</span><span>Value</span></li>
+<li><span>Cloud Ceiling</span><span>Value</span></li>
+</ul>
+</div>
+</div>
+
+<div class="four-hour hour">
+<div class="first" data-slide="05">
+<span>Time</span>
+<img class="hour-icon">
+<span>Temp</span>
+<span>Value</span>
+<span>drop %</span>
+<span><i class="fa fa-angle-down hour-angledown"></i></span>
+</div>
+<div class="hour-slide" data-slide="05">
+<ul class="second">
+<li><span>Rain</span><span>Value</span></li>
+<li><span>Max UV Index</span><span>Value</span></li>
+<li><span>Wind</span><span>Value</span></li>
+<li><span>Wind Gusts</span><span>Value</span></li>
+<li><span>Humidity</span><span>Value</span></li>
+</ul>
+                
+<ul class="third">
+<li><span>Indoor Humidity</span><span>Value</span></li>
+<li><span>Dew Point</span><span>Value</span></li>
+<li><span>Cloud Cover</span><span>Value</span></li>
+<li><span>Visibility</span><span>Value</span></li>
+<li><span>Cloud Ceiling</span><span>Value</span></li>
+</ul>
+</div>
+</div>
+
+<div class="five-hour hour">
+<div class="first" data-slide="06"> 
+<span>Time</span>
+<img class="hour-icon">
+<span>Temp</span>
+<span>Value</span>
+<span>drop %</span>
+<span><i class="fa fa-angle-down hour-angledown"></i></span>
+</div>
+<div class="hour-slide" data-slide="06">
+<ul class="second"> 
+<li><span>Rain</span><span>Value</span></li>
+<li><span>Max UV Index</span><span>Value</span></li>
+<li><span>Wind</span><span>Value</span></li>
+<li><span>Wind Gusts</span><span>Value</span></li>
+<li><span>Humidity</span><span>Value</span></li>
+</ul>
+                
+<ul class="third">
+<li><span>Indoor Humidity</span><span>Value</span></li>
+<li><span>Dew Point</span><span>Value</span></li>
+<li><span>Cloud Cover</span><span>Value</span></li>
+<li><span>Visibility</span><span>Value</span></li>
+<li><span>Cloud Ceiling</span><span>Value</span></li>
+</ul>
+</div>
+</div>
+
+</div>
+
+
+<div class="daily-column link-column" data-link="03">
+<div class="today daily">
+<span>DAY<br/><i>Date</i></span>
+<img class="daily-icon">
+<span><span>Temp</span><i>/Or</i></span>
+<span>Text</span>
+<span>Drop%</span>
+</div>
+
+<div class="one-after daily">
+<span>DAY<br/><i>Date</i></span>
+<img class="daily-icon">
+<span><span>Temp</span><i>/Or</i></span>
+<span>Text</span>
+<span>Drop%</span>
+</div>
+
+<div class="two-after daily">
+<span>DAY<br/><i>Date</i></span>
+<img class="daily-icon">
+<span><span>Temp</span><i>/Or</i></span>
+<span>Text</span>
+<span>Drop%</span>
+</div>
+
+<div class="three-after daily">
+<span>DAY<br/><i>Date</i></span>
+<img class="daily-icon">
+<span><span>Temp</span><i>/Or</i></span>
+<span>Text</span>
+<span>Drop%</span>
+</div>
+
+<div class="four-after daily">
+<span>DAY<br/><i>Date</i></span>
+<img class="daily-icon">
+<span><span>Temp</span><i>/Or</i></span>
+<span>Text</span>
+<span>Drop%</span>
+</div>
+
+
+</div>
+
+<div class="radar-column link-column" data-link="04">
+<h3 class="country-radar"></h3>
+<div>
+<div id="map">
+</div>
+</div>
+</div>
+
+<div class="airqua-column link-column" data-link="05">
+<div class="current-quality">
+<h3>CURRENT AIR QUALITY</h3>
+<div>
+<span class="airquality-number"></span>
+<div>
+<span class="airquacolour"></span>
+<h4 class="currentqua-rating">Rating</h4>
+<p class="currentqua-val">Text</p>
+</div>
+</div>
+</div>
+
+<div class="description">
+<div>
+<li>
+<span data-active="01" class="description-title">Current Pollutants</span>
+<span data-active="02" class="description-title">Air Quality Scale</span></li>
+<li>Over the past hour</li>
+</div>
+
+<div>
+<div class="pollutants active description-text" data-active="01">
+<div>
+<li>
+<span>03</span>
+<span></span>
+<span>Fair</span>
+</li>
+
+<li>
+ Ground-level Ozone can aggravate existing respiratory diseases and also lead to throat irritation, headaches, and chest pain.
+</li>
+
+<li>
+<span>20</span>
+<span>49 mg/m3</span>
+</li>
+</div>
+
+<div>
+<li>
+<span>PM</span>
+<span></span>
+<span>Excellent</span>
+</li>
+    
+<li>
+Fine Particulate Matter are inhalable pollutant particles with a diameter less than 2.5 micrometers that can enter the lungs and bloodstream, 
+resulting in serious health issues. The most severe impacts are on the lungs and heart. Exposure can result in coughing or difficulty breathing,
+aggravated asthma, and the development of chronic respiratory disease.
+
+</li>
+    
+<li>
+<span>19</span>
+<span>9 mg/m3</span>
+</li>
+</div>
+
+<div>
+<li>
+<span>PM</span>
+<span></span>
+<span>Excellent</span>
+</li>
+    
+<li>
+Particulate Matter are inhalable pollutant particles with a diameter less than 10 micrometers. Particles that are larger than 2.5 micrometers can be deposited in airways,
+resulting in health issues. Exposure can result in eye and throat irritation, coughing or difficulty breathing, and aggravated asthma.
+More frequent and excessive exposure can result in more serious health effects.
+</li>
+    
+<li>
+<span>17</span>
+<span>17 mg/m3</span>
+</li>
+</div>
+
+<div>
+<li>
+<span>NO</span>
+<span></span>
+<span>Excellent</span>
+</li>
+    
+<li>
+Breathing in high levels of Nitrogen Dioxide increases the risk of respiratory problems. 
+Coughing and difficulty breathing are common and more serious health issues such as respiratory infections can occur with longer exposure.
+</li>
+    
+<li>
+<span>7</span>
+<span>13 mg/m3</span>
+</li>
+</div>
+
+</div>
+
+<div class="scale description-text" data-active="02">
+
+<div>
+<li>
+<span></span>
+<span>0 - 19</span>
+</li>
+<h3>Excellent</h3>
+<p>The air quality is ideal for most individuals; enjoy your normal outdoor activities.</p>
+</div>
+
+<div>
+<li>
+<span></span>
+<span>20 - 49</span>
+</li>
+<h3>Fair</h3>
+<p>The air quality is generally acceptable for most individuals. However, sensitive groups may experience minor to moderate symptoms from long-term exposure.</p>
+</div>
+
+<div>
+<li>
+<span></span>
+<span>50 - 99</span>
+</li>
+<h3>Poor</h3>
+<p>The air has reached a high level of pollution and is unhealthy for sensitive groups. 
+Reduce time spent outside if you are feeling symptoms such as difficulty breathing or throat irritation.</p>
+</div>
+
+<div>
+<li>
+<span></span>
+<span>100 - 149</span>
+</li>
+<h3>Unhealthy</h3>
+<p>Health effects can be immediately felt by sensitive groups. 
+Healthy individuals may experience difficulty breathing and throat irritation with prolonged exposure. Limit outdoor activity.</p>
+</div>
+
+<div>
+<li>
+<span></span>
+<span>150 - 249</span>
+</li>
+<h3>Very Unhealthy</h3>
+<p>Health effects will be immediately felt by sensitive groups and should avoid outdoor activity. 
+Healthy individuals are likely to experience difficulty breathing and throat irritation; consider staying indoors and rescheduling outdoor activities.</p>
+</div>
+
+<div>
+<li>
+<span></span>
+<span>250+</span>
+</li>
+<h3>Dangerous</h3>
+<p>Any exposure to the air, even for a few minutes, can lead to serious health effects on everybody. Avoid outdoor activities.</p>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+
+
+<div class="severe-weather-column link-column" data-link="06"> 
+<div></div>
+<p></p>
+</div>
+
+<div class="news-column link-column" data-link="07">
+<div class="weather-news">
+
+<div>
+<a href="#"><h4></h4><p></p><span></span></a>
+</div>
+
+<div>
+<a href="#"><h4></h4><p></p><span></span></a>
+</div>
+
+<div>
+<a href="#"><h4></h4><p></p><span></span></a>
+</div>
+
+<div>
+<a href="#"><h4></h4><p></p><span></span></a>
+</div>
+
+<div>
+<a href="#"><h4></h4><p></p><span></span></a>
+</div>
+
+<div>
+<a href="#"><h4></h4><p></p><span></span></a>
+</div>
+
+<div>
+<a href="#"><h4></h4><p></p><span></span></a>
+</div>
+
+<div>
+<a href="#"><h4></h4><p></p><span></span></a>
+</div>
+
+
+
+</div>
+
+</div>
+
+<div class="further-ahead">
+<div>FURTHER AHEAD</div>
+<li class="nav-link" data-link="02"><span>HOURLY</span><i class="fa fa-arrow-right"></i></li>
+<li class="nav-link" data-link="03"><span>DAILY</span><i class="fa fa-arrow-right"></i></li>
+<li class="nav-link" data-link="05"><span>AIR QUALITY</span><i class="fa fa-arrow-right"></i></li>
+</div>
+
+<div class="around-globe">
+<div>AROUND THE GLOBE</div>
+<li class="nav-link on-link" data-link="04"><span>RADAR & MAPS</span><i class="fa fa-arrow-right"></i></li>
+<li class="nav-link on-link" data-link="07"><span>NEWS</span><i class="fa fa-arrow-right"></i></li>
+</div>
+
+</div>
+
+<div class="column-two">
+
+<div class="news-tile">
+<div>
+<h3></h3><p></p>
+<li class="news-list">
+<a href="#">
+<span>READ MORE</span>
+<span><i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+</div>
+
+<div>
+<h3></h3><p></p>
+<li class="news-list">
+<a href="#">
+<span>READ MORE</span>
+<span><i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+</div>
+
+<div>
+<h3></h3><p></p>
+<li class="news-list">
+<a href="#">
+<span>READ MORE</span>
+<span><i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+</div>
+
+<div>
+<h3></h3><p></p>
+<li class="news-list">
+<a href="#">
+<span>READ MORE</span>
+<span><i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+</div>
+
+
+
+</div>
+
+<div class="news-tile">
+<div>
+<h3></h3><p></p>
+<li class="news-list">
+<a href="#">
+<span>READ MORE</span>
+<span><i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+</div>
+
+<div>
+<h3></h3><p></p>
+<li class="news-list">
+<a href="#">
+<span>READ MORE</span>
+<span><i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+</div>
+
+<div>
+<h3></h3><p></p>
+<li class="news-list">
+<a href="#">
+<span>READ MORE</span>
+<span><i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+</div>
+
+<div>
+<h3></h3><p></p>
+<li class="news-list">
+<a href="#">
+<span>READ MORE</span>
+<span><i class="fa fa-angle-right"></i></span>
+</a>
+</li>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="btm-container">
+<div class="addlocation">
+<span>World</span>
+</div>
+<div class="btm-links">
+    
+<div class="company">
+<div class="heading" data-type="01">
+<p>COMPANY</p><i class="fa fa-angle-down"></i></div>
+<div class="link-slide" data-type="01">
+<li><a href="#">Proven&nbsp;Superior&nbsp;Accuracy</a></li>
+<li><a href="#">About&nbsp;AcuuWeather</a></li>
+<li><a href="#">Digital&nbsp;Advertising</a></li>
+<li><a href="#">Careers</a></li>
+<li><a href="#">Press</a></li>
+<li><a href="#">Contact&nbsp;Us</a></li></div>
+</div>
+    
+<div class="social-links">
+<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+</div>
+    
+<div class="products">
+<div class="heading" data-type="02">
+<p>PRODUCTS&nbsp;&&nbsp;SERVICES</p><i class="fa fa-angle-down"></i></div>
+<div class="link-slide" data-type="02">
+<li><a href="#">For Business</a></li>
+<li><a href="#">For Partners</a></li>
+<li><a href="#">For Advertising</a></li>
+<li><a href="#">AcuuWeather APIs</a></li>
+<li><a href="#">Podcast</a></li></div>
+</div>
+<div class="services">
+<div class="apps">
+<div class="heading" data-type="03">
+<p>APPS&nbsp;&&nbsp;DOWNLOADS</p><i class="fa fa-angle-down"></i></div>
+<div class="link-slide" data-type="03">
+<li><a href="#">iPhone App</a></li>
+<li><a href="#">Andriod App</a></li>
+<li><a href="#">See all Apps & Downloads</a></li></div>
+</div>
+<div class="sub-services">
+<div class="heading" data-type="04">
+<p>SUBSCRIPTION&nbsp;SERVICES</p><i class="fa fa-angle-down"></i></div>
+<div class="link-slide" data-type="04">
+<li><a href="#">AcuuWeather Premium</a></li>
+<li><a href="#">AcuuWeather Professional</a></li></div>
+</div>
+</div>
+    
+    <div class="links-more">
+    <div class="heading" data-type="05">
+    <p>MORE</p><i class="fa fa-angle-down"></i></div>
+    <div class="link-slide" data-type="05"><div>
+    <li><a href="#">AcuuWeather Shop</a></li>
+    <li><a href="#">AcuuWeather Ready</a></li>
+    <li><a href="#">Business</a></li>
+    <li><a href="#">Health</a></li>
+    <li><a href="#">Hurricane</a></li>
+    <li><a href="#">Leisure and Recreation</a></li>
+    <li><a href="#">Severe Weather</a></li></div><div>
+    <li><a href="#">Space and Astronomy</a></li>
+    <li><a href="#">Sports</a></li>
+    <li><a href="#">Travel</a></li>
+    <li><a href="#">Weather News</a></li>
+    <li><a href="#">Weather Blogs</a></li>
+    <li><a href="#">Winter Weather</a></li></div></div>
+    </div>
+    </div>
+    </div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+<script src="/Stack/acuu/link.js"></script>
+</body>
+</html>
