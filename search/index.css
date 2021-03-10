@@ -1,0 +1,994 @@
+:root{
+    box-sizing: border-box;
+    font-family: 'Abel', sans-serif;
+    font-size: calc(10px + 0.5vw);
+    --height: calc(40vh + 150px);
+}
+
+*, ::before, ::after{
+    box-sizing: inherit;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+body{
+    margin: 0;
+    padding:0;
+    overflow-x: hidden;
+    outline: none;
+}
+
+.overlay{
+    display: none;
+}
+
+.header{
+    height: var(--height);
+    display: flex;
+    flex-direction: column;
+    border-bottom:2px solid #BA4A00;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header .ask-panel{
+    margin-top: 27vh;
+    height: 3.5em;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+
+.header .ask-panel i{
+    color: #909497;
+   font-size: 1.5em;
+   margin-right: 2px;
+   text-indent: 10px;
+   font-stretch: ultra-condensed;
+}
+.header .ask-panel .search-panel i.fa-close{
+    font-size: 2em;
+    margin-right: 10px;
+    display: none;
+}
+
+.header .ask-panel .search-panel i.fa-close.show{
+    display: block;
+}
+
+.header .ask-panel .search-panel{
+   display: flex;
+   width: 70%;
+   margin: auto;
+   background: #fff;
+   align-items: center;
+   border: none;
+   border-radius: 2px;
+   padding: 0.3em;
+}
+.header .ask-panel .search-panel .search{
+    background: transparent;
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 2.3em;
+    text-indent: 15px;
+}
+
+.header .ask-panel button{
+    padding: 0.5em;
+    width: 70%;
+    margin: auto;
+    outline: none;
+    border: none;
+    border-top:2px solid #BA4A00;
+    font-size: 1.2em;
+    text-align: left;
+    cursor: pointer;
+    background: #fff;
+    font-stretch: narrower;
+    color: #909497;
+   /* z-index: 10;*/
+    display: none;
+
+}
+
+.header .ask-panel .auto-search div{
+    padding: 0.5em;
+    width: 70%;
+    margin: auto;
+    font-size: 1.2em;
+    text-align: left;
+    cursor: pointer;
+    background: #fff;
+    font-stretch: narrower;
+    display: none;
+}
+
+
+
+.header .ask-panel button.show{
+    display: block;
+}
+
+.header .ask-panel input[type = text]{
+   font-size: 1.3em;
+   font-stretch: semi-condensed;
+   font-weight: 200;
+}
+
+.header .location-placement{
+    display: flex;
+    margin: auto;
+    margin-top: 2em;
+    z-index: 0;
+    width: 70%;
+}
+
+.header .location-placement div{
+   background: rgba(0,0,0,0.9);
+   color: white;
+   font-stretch: narrower;
+   padding: 1em;
+   border-radius: 4px;
+   width: 33%;
+   z-index: 0;
+   cursor: pointer;
+   font-size: 0.9em;
+   display: none;
+   text-align: center;
+   
+}
+
+.header .location-placement div span{
+  white-space: nowrap;
+}
+
+
+.header .location-placement > div + div{
+    margin-left: 2%;
+}
+
+
+.header div .nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding:1em 0;
+    font-weight: 200;
+    height: 4em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+}
+
+.header .dropdown{
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    left: 0;
+    top: 4em;
+    right: 0;
+    position: fixed;
+    min-height: calc(var(--height) - 4em );
+    z-index: 3000;
+    display: none;
+}
+
+
+div .nav.fixed{
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0,0.8), rgba(0,0,0,0.9)),url('/Stack/acuu/images/nav-md.jpg');
+}
+
+
+div .nav-ask{
+    height: 4em;
+    background: black;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    z-index: 2500;
+}
+
+
+div .nav-ask div{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: auto;
+    border-bottom: 1px solid #BA4A00;
+    height: 100%;
+    align-items: center;
+}
+
+div .nav-ask div i{
+    font-size: 1.2em;
+}
+
+
+div .nav-ask  input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    padding: 0 1em;
+}
+
+div .nav .logo{
+    font-size: 1.5rem;
+}
+
+div .nav .nav-list{
+    list-style-type: none;
+    display: flex;
+}
+
+
+div .nav .nav-list li a{
+    font-size: 0.85em;
+    font-stretch: ultra-condensed;
+    padding: 1.5em 0;
+}
+
+div .nav .nav-list li:not(:first-child) a{
+    padding-left: 2em;
+}
+
+div .nav .nav-right{
+    /*padding-left: 7em;*/
+    margin-left: 7em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-right .settings{
+    background: rgba(100, 100, 100, 0.5);
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin-left: 4px;
+}
+
+
+.nav-right .settings i{
+    margin-top: 7px;
+    font-size: 16px;
+    color: #909497 ;
+}
+
+.nav .nav-right .settings i.fa-bars,
+.nav .nav-right  .settings i.menu-close{
+    display: none;
+}
+
+.nav .nav-right  .settings i.menu-close{
+    font-size: 2em;
+    color: white;
+}
+
+
+.nav-right .ask-dummy{
+    background: rgba(100, 100, 100, 0.5);
+    height: 30px;
+    text-align: left;
+    visibility: hidden;
+    width: 225px;
+    padding-left: 4px;
+    font-size: 0.7em;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+
+.nav-right .ask-dummy p{
+    margin-left: 4px;
+    color: #909497;
+}
+
+
+/*.dropdown .radar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2em 0;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    display: none;
+}*/
+
+.dropdown .add-recent{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1em 5%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: calc(var(--height) - 4em);
+    display: none;
+    z-index:25;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.add-recent .current-loc:not(div),
+.add-recent .drop-recentloc div span,
+.add-recent .drop-recentloc h3{
+    font-stretch: narrower;
+    font-size: 1.3em;
+}
+
+.add-recent .drop-recentloc h3{
+    margin-top: 0;
+}
+
+.add-recent .current-loc span{
+    cursor: pointer;
+}
+
+
+.add-recent .drop-recentloc div{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   cursor: pointer;
+}
+
+.add-recent .drop-recentloc div > span > span:last-child{
+    margin-left: 10px;
+    font-size: 1em;
+}
+
+.add-recent .drop-recentloc > div + div{
+   padding-top: 1.5em;
+}
+
+.header .add-recent .current-loc div{
+    padding: 1.5em 0em 0em 0em;
+    width: 100%;
+    font-size: 1em;
+    text-align: left;
+    cursor: pointer;
+    font-stretch: narrower;
+    display: none;
+}
+
+
+
+
+.dropdown .radar li,
+.dropdown .news li,
+.dropdown .video li,
+.dropdown .weather li,
+.dropdown .more li,
+.overlay div ul li{
+   list-style-type: none;
+   list-style-position: inside;
+   padding-left: 0;   
+}
+
+.dropdown .radar li p,
+.dropdown .news p,
+.dropdown .video p,
+.dropdown .weather p,
+.dropdown .more p{
+    color: #909497;
+}
+
+.dropdown .radar li:not(:nth-child(4)) a, 
+.dropdown li a{
+  display: block;
+  line-height: 1.2em;
+}
+
+.dropdown .radar li:first-of-type:not(.separate) a,
+.dropdown .news li a.news-watch,
+.dropdown .video > li a.video-watch,
+.dropdown .weather li:first-of-type a{
+   font-size: 1.8em;
+   font-stretch: semi-condensed;
+   font-weight: 700;
+}
+
+.dropdown .radar li:first-of-type:not(.separate),
+.dropdown .news li.news-watch,
+.dropdown .video li.video-watch,
+.dropdown .weather li:first-of-type
+{
+   width: 200px;
+}
+
+.dropdown .radar li:first-of-type:not(.separate) p,
+.dropdown .news li.news-watch p,
+.dropdown .video li.video-watch p{
+    font-size: 0.9em;
+    font-stretch: narrower;
+    line-height: 1.5em;
+}
+
+
+.dropdown .radar > li + div, 
+.dropdown .news > li + div,
+.dropdown .news > div + div,
+.dropdown .more > div + li,
+.dropdown .more > li + li,
+.dropdown .radar > div + li,
+.dropdown .video > div,
+.dropdown .video > div + li,
+.dropdown .weather > li + li:not(:last-child)
+{
+    width: 270px;
+    padding-left: 2em;
+}
+
+.dropdown .more div:first-of-type{
+   width: 270px;
+}
+
+.dropdown .more div:last-of-type
+{
+   width: 190px;
+}
+
+
+
+.dropdown .radar div li a,
+.dropdown .radar > div + li a,
+.dropdown .news div a,
+.dropdown .video > div a,
+.dropdown .video > div + li a,
+.dropdown .weather > li + li a,
+.dropdown .more li a,
+.dropdown .radar > li + li p:first-of-type,
+.dropdown .news li.news-video p:first-of-type,
+.dropdown .video > li + li p:first-of-type,
+.dropdown .weather li:last-child p:first-of-type{
+    font-size: 1.2em;
+    font-stretch: semi-condensed;
+    font-weight: 600;
+}
+
+.dropdown .radar div li p, 
+.dropdown .radar > div + li p,
+.dropdown .news div p,
+.dropdown .video div p,
+.dropdown .video > div + li p,
+.dropdown .weather > li + li p,
+.dropdown .more li p,
+.dropdown .more div:last-of-type li a,
+.dropdown .radar > li + li a div p:last-of-type,
+.dropdown .news li.news-video a div p:last-of-type,
+.dropdown .video > li + li a div p:last-of-type,
+.dropdown .weather li:last-child a div p:last-of-type
+{
+    font-size: 0.8em;
+    line-height: 1.5em;
+    font-stretch: narrower;
+}
+
+.dropdown .radar div > li + li,
+.dropdown .news div > li + li,
+.dropdown .video div > li + li,
+.dropdown .more div:first-of-type > li + li{
+    margin-top: 35px;
+} 
+
+.dropdown .radar > li + li, 
+.dropdown .news > div + li,
+.dropdown .video > li + li,
+.dropdown .weather li:last-child
+{
+    max-width: 260px;
+    padding-left: 2em;
+}
+
+.dropdown .radar > li + li a div,
+.dropdown .news li.news-video div,
+.dropdown .video > li + li div,
+.dropdown .weather li:last-child div{
+    width: 210px;
+}
+
+.dropdown .radar > li + li p:first-of-type,
+.dropdown .news li.news-video p:first-of-type,
+.dropdown .video > li + li p:first-of-type,
+.dropdown .weather li:last-child p:first-of-type{
+   margin-top: 0;
+   color: #E5E7E9;
+   line-height: 1.2em;
+}
+
+.dropdown .weather li:last-child p:first-of-type{
+    font-size: 1em;
+}
+
+.dropdown .weather li:last-child a div p:last-of-type{
+    font-size: 0.65em;
+    font-weight: 300;
+    font-stretch: normal;
+}
+
+.dropdown .radar > li + li a div p:last-of-type,
+.dropdown .news li.news-video a div p:last-of-type,
+.dropdown .video > li + li a div p:last-of-type,
+.dropdown .weather li:last-child a div p:last-of-type{
+    margin-top: -0.6em;
+}
+
+.dropdown .news.show,
+.dropdown .video.show,
+.dropdown .radar.show,
+.dropdown .weather.show,
+.dropdown .more.show,
+.dropdown .add-recent.show{
+    display: block;
+    display: flex;
+}
+
+.dropdown .news li.news-watch span,
+.dropdown .video li.video-watch span{
+    display: block;
+    background: rgb(202, 88, 12);
+    width: 150px;
+    height: 35px;
+    border: 0;
+    border-radius: 2px;
+    outline: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown .news li.news-watch span a,
+.dropdown .video li.video-watch span a{
+    font-size: 0.9em;
+}
+
+
+.dropdown .weather,
+.dropdown .more,
+.dropdown .video,
+.dropdown .news,
+.dropdown .radar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2em 3em;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    display: none;
+}
+
+
+.dropdown .more div:last-of-type > li + li{
+   margin-top: 20px;
+}
+
+
+.dropdown .more div:last-of-type li p{
+    display: inline;
+    line-height: 1.5em;
+    font-stretch: narrower;
+    font-weight: 500;
+    font-size: 1.1em;
+    color: #E5E7E9;
+}
+
+
+.dropdown .more div:last-of-type i{
+   width: 35px;
+   height: 35px;
+   border: none;
+   border-radius: 50%;
+   text-align: center;
+   font-size: 1.9em;
+   margin-right: 15px;
+}
+
+.dropdown .more div:last-of-type i.fa-facebook
+{
+    background: #4267B2;
+    padding-top: 6px;
+}
+
+.dropdown .more div:last-of-type i.fa-twitter{
+   background: #1DA1F2;
+   padding-top: 6px;
+}
+
+.dropdown .more div:last-of-type i.fa-instagram{
+   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+   padding-top: 6px;
+}
+
+.dropdown .more div:last-of-type i.fa-youtube{
+   background: #FF0000;
+   padding-top: 5px;
+}
+
+@media screen and (max-width: 1130px) and (min-width: 1070px){
+    .dropdown .radar li:first-of-type:not(.separate),
+    .dropdown .news li.news-watch,
+    .dropdown .video li.video-watch,
+    .dropdown .weather li:first-of-type,
+    .dropdown .more div:first-of-type{
+       padding-left: 1.5em;
+    }
+}
+
+@media screen and (max-width: 1020px){
+    .nav-right .ask-dummy{
+        display: none;
+    }
+    .nav-right .ask-dummy{
+        background-color: transparent;
+        text-align: right;
+        visibility: hidden;
+        width: 50px;
+        font-size: 1.3em;
+        color: white;
+        display: flex;
+        margin-right: -0.5em;
+    }
+
+
+
+    .nav-right .ask-dummy p{
+        display: none;
+    }
+
+    .dropdown .radar > li + li,
+    .dropdown .news > div + li,
+    .dropdown .video > li + li,
+    .dropdown .weather li:last-child{
+     display: none;
+    }
+
+/*.dropdown .more > div + li,
+.dropdown .more > li + li,
+.dropdown .more div:first-of-type{
+   width: 245px;
+}*/
+
+.dropdown .radar li:first-of-type:not(.separate),
+.dropdown .news li.news-watch,
+.dropdown .video li.video-watch,
+.dropdown .weather li:first-of-type,
+.dropdown .more div:first-of-type{
+   width: 240px;
+}
+
+.dropdown .more div:first-of-type{
+    padding-left: 0;
+}
+
+.dropdown .radar > div + li,
+.dropdown .video > div,
+.dropdown .video > div + li,
+.dropdown .weather > li + li:not(:last-child),
+.dropdown .news > div + div,
+.dropdown .radar > li + div, 
+.dropdown .news > li + div,
+.dropdown .more > div + li,
+.dropdown .more > li + li{
+  padding-left: 2em;
+  width: 240px;
+}
+
+.dropdown .weather,
+.dropdown .more,
+.dropdown .video,
+.dropdown .news,
+.dropdown .radar{
+    padding: 2em 6em;
+}
+
+.dropdown .more div:last-of-type{
+    display: none;
+}
+
+
+
+}
+
+@media screen and (max-width: 900px){
+    .dropdown .weather,
+    .dropdown .more,
+    .dropdown .video,
+    .dropdown .news,
+    .dropdown .radar{
+        padding: 2em 6%;
+    }
+
+
+    .dropdown .radar li:first-of-type:not(.separate),
+.dropdown .news li.news-watch,
+.dropdown .video li.video-watch,
+.dropdown .weather li:first-of-type,
+.dropdown .more div:first-of-type{
+   width: 235px;
+}
+
+.dropdown .radar > div + li,
+.dropdown .video > div,
+.dropdown .video > div + li,
+.dropdown .weather > li + li:not(:last-child),
+.dropdown .news > div + div,
+.dropdown .radar > li + div, 
+.dropdown .news > li + div,
+.dropdown .more > div + li,
+.dropdown .more > li + li{
+  padding-left: 2em;
+  width: 235px;
+}
+
+
+    
+}
+
+
+@media screen and (max-width: 765px) {
+    .nav-right .settings{
+        background: transparent;
+        /*width: 30px;
+        /*height: 3em;*/
+        text-align: center;
+        margin-left: 4px;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        margin-right: -10px;
+        
+    }
+
+    .nav-right .ask-dummy{
+       margin-right: -20px;
+    }
+
+    .nav-right .settings i{
+       margin-top: 0;
+    }
+     .nav .nav-right .settings i.fa-bars{
+        font-size: 1.7em;
+        color: #fff;
+        align-self: center;
+        display: block;
+    }
+
+    .nav-right .settings i.fa-cog{
+        display: none;
+    }
+
+    .nav-right .settings i.fa-close.show{
+        display: block;
+    }
+
+    .header .location-placement{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 2em;
+        z-index: 0;
+        width: 94%;
+    }
+
+
+    .header .location-placement div{
+        padding: 1em 1em;
+        width: 100%;
+     }
+     
+     .header .location-placement > div + div{
+         margin-left: 0%;
+         margin-top: 2%;
+     }
+
+    .header .ask-panel button,
+    .header .ask-panel .auto-search div,
+    .header .ask-panel .search-panel
+    {
+        width: 94%;
+    }
+
+    .header .ask-panel button,
+    .header .ask-panel .auto-search div{
+        padding: 0.7em;
+        z-index: 1900;
+    }
+
+    .header .ask-panel .auto-search div:last-of-type{
+     padding: 0.7em 0.7em 1em 0.7em;
+    }
+
+    .header .ask-panel .search-panel .search{
+        height: 3em;
+    }
+
+    div .nav .nav-list{
+        display: none;
+    }
+
+    .header div .nav{
+        justify-content: space-between;
+        padding: 2em 3%;
+    }
+
+    .dropdown .add-recent{
+        padding: 1em 5%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+    .add-recent .drop-recentloc h3{
+        margin-top: 1.5em;
+    }
+
+    
+    .overlay{
+        display: block;
+        position: fixed;
+        height: 100%;
+        top: 4em;
+        left: 0;
+        right: 0;
+        background: rgba(0,0,0,1);
+        z-index: 3000;
+        display: none;
+        overflow-x: hidden;
+    }
+
+
+    .overlay div > div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 1em;
+        cursor: pointer;
+    }
+
+    .overlay div:first-of-type{
+        padding-top: 0.7em;
+    }
+
+    .overlay div > div i{
+        font-size: 1.5em;
+        color: #909497;
+        
+    }
+
+    .overlay div div i.rotate{
+        transform: rotate(-180deg);
+        -o-transform: rotate(-180deg);
+        -ms-transform: rotate(-180deg);
+        -moz-transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+    }
+
+    .overlay div div p{
+        font-size: 1.1em;
+        font-stretch: semi-condensed;
+        color: #fff;
+        padding-left: 1em;
+    }
+
+    .overlay div ul{
+        padding: 0;
+        margin: 0;
+        border-top: 1px solid #909497;
+        border-bottom: 1px solid #909497;
+        padding-left: 1em;
+        opacity: 0;
+        display: none;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .overlay div ul.show{
+        display: block;
+        animation: opacity 0.5s ease-in-out forwards;
+        -moz-animation: opacity 0.5s ease-in-out forwards;
+        -o-animation: opacity 0.5s ease-in-out forwards;
+        -webkit-animation: opacity 0.5s ease-in-out forwards;
+    }
+
+    @keyframes opacity{
+        0%{opacity: 0; max-height: 0%;}
+        100%{opacity: 1; max-height: 100%;}
+    }
+
+    
+
+    .overlay div ul li a,
+    .overlay div ul li p{
+        font-size: 1.2em;
+    }
+
+    .overlay div ul > li + li{
+        margin-top: 25px;
+    }
+
+    .overlay div ul li:first-of-type{
+        margin-top: 20px;
+    }
+
+    .overlay div ul li:last-of-type{
+        margin-bottom: 30px;
+    }
+
+    .overlay .menu-more .media{
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        margin-top: -2em;
+    }
+
+    .overlay .menu-more .media i{
+        width: 35px;
+        height: 35px;
+        border: none;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 1.9em;
+        margin-right: 1.5em;
+        font-size: 1.5em;
+        padding-top: 5px;
+    }
+
+    .overlay .menu-more .media i.fa-facebook{
+        background: #4267B2;
+    }
+
+    .overlay .menu-more .media i.fa-instagram{
+        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    }
+
+    .overlay .menu-more .media i.fa-twitter{
+        background: #1DA1F2;
+    }
+
+    .overlay .menu-more .media i.fa-youtube{
+        background: #FF0000;
+    }
+
+    .header .dropdown{
+        min-height: 100vh;
+    }
+
+    
+    
+}
+
+
+
+

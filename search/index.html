@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width= device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<title>Global Current weather | Acuu weather</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet" as="font"  crossorigin="anonymous">
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin=""/>
+<link rel="stylesheet" type="text/css" href="/Stack/acuu/header.css"/>
+<link rel="stylesheet" type="text/css" href="/Stack/acuu/container.css"/>
+
+</head>
+<body>
+
+<div class="overlay">
+
+<div class="menu-radar menu">
+<div class="menu-list" data-list="01"><p>RADAR & MAPS</p><span><i class="fa fa-angle-down menu-angle"></i></span></div>
+<ul class="slide" data-list="01">
+<li><a href="#" class="menu-links" data-link="01">Radar</a></li>
+<li><a href="#">Satellite</a></li>
+<li><a href="#" class="menu-links" data-link="02">Current Conditions</a></li>
+</ul>
+</div>
+
+<div class="menu-news menu">
+<div class="menu-list" data-list="02"><p>NEWS</p><span><i class="fa fa-angle-down menu-angle"></i></span></div>
+<ul class="slide" data-list="02">
+<li><a href="#" class="menu-links" data-link="03">Weather News</a></li>
+<li><a href="#">Weather Blogs</a></li>
+<li><a href="#">Podcast</a></li>
+<li><a href="#">Personalities</a></li>
+</ul>
+</div>
+
+<div class="menu-video menu">
+<div class="menu-list" data-list="03"><p>VIDEO</p><span><i class="fa fa-angle-down menu-angle"></i></span></div>
+<ul class="slide" data-list="03">
+<li><a href="#">Trending now</a></li>
+<li><a href="#">Storm Chasers</a></li>
+<li><a href="#">Expert Forecasts</a></li>
+</ul>
+</div>
+
+<div class="menu-weather menu">
+<div class="menu-list" data-list="04"><p>SEVERE WEATHER</p><span><i class="fa fa-angle-down menu-angle"></i></span></div>
+<ul class="slide" data-list="04">
+<li><a href="#">Hurricane</a></li>
+<li><a href="#">AcuuWeather Ready</a></li>
+</ul>
+</div>
+
+<div class="menu-more menu">
+<div class="menu-list" data-list="05"><p>MORE</p><span><i class="fa fa-angle-down menu-angle"></i></span></div>
+<ul class="slide" data-list="05">
+<li><a href="#">About AcuuWeather</a></li>
+<li><a href="#">Apps & Downloads</a></li>
+<li><a href="#">AcuuWeather Premium</a></li>
+<li><a href="#">AcuuWeather Professional</a></li>
+<div class="media">
+<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+</div>
+</ul>
+</div>
+
+<!--<div class="menu-settings menu">
+<div class="menu-list" data-list="06"><p>SETTINGS</p><span><i class="fa fa-angle-down menu-angle"></i></span></div>
+<ul class="slide" data-list="06">
+<li><p>Language: </p><div id="google_translate_element"></div></li>
+<li><p>Units</p><span></span></li>
+</ul>
+</div>-->
+
+
+</div>    
+
+
+
+<div class="header">
+
+<div>
+<nav class="nav">
+<div><a href="#" class="logo">AcuuWeather</a></div>
+<ul class="nav-list">
+<li><a href="#" data-number="1">RADAR&nbsp;&&nbsp;MAPS</a></li>
+<li><a href="#" data-number="2">NEWS</a></li>
+<li><a href="#" data-number="3">VIDEO</a></li>
+<li><a href="#" data-number="4">SEVERE&nbsp;WEATHER</a></li>
+<li><a href="#" data-number="5">MORE</a></li>
+</ul>
+<div class="nav-right">
+<div class="ask-dummy">
+<i class = "fa fa-search"></i><p>Search location, zip...</p>
+</div>  
+<div class="settings">
+<i class="fa fa-cog"></i>
+<i class="fa fa-bars"></i>
+<i class="fa fa-close menu-close"></i>
+</div>
+</div>
+</nav>
+
+</div>
+
+<div class="nav-ask">
+<div>
+<span><i class="fa fa-search"></i></span>
+<input type="text" name="ask" class="ask">
+<span><i class="fa fa-close close"></i></span>
+</div>
+</div>
+
+
+
+<div class="ask-panel">
+<div class="search-panel">
+<i class="fa fa-search panel-icon"></i>
+<input type="text" name="ask" placeholder="Search location" class="search" autocomplete="off">
+<i class="fa fa-close close-search"></i>
+</div>
+<div class="auto-search">
+<button class="current" type="button" value="Use Current Location">Use Current Location</button>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+</div>
+
+<div aria-describedby="location-placement" class="location-placement">
+<div><span></span></div>
+<div><span></span></div>
+<div><span></span></div>
+</div>
+    
+
+
+
+
+<div class="dropdown">
+<div class="radar drop" data-number="1">
+<li><a href="#"  class="linked" data-link="01">Radar & Maps</a><p>Visualize past, present, and future weather from many angles via both static and interactive maps</p></li>
+<div>
+<li class="separate"><a href="#"  class="linked" data-link="01">Radar</a><p>Current and future radar maps for assessing areas of precipitation, type, and intensity</p></li>
+<li class="separate"><a href="#"  class="linked" data-link="02">Current Conditions</a><p>View live current conditions in and around your area</p></li></div>
+<li><a href="#">Satellite</a><p>Satellite maps for visualizing where there is cloud cover and associated precipitation</p></li>
+<li><a href="#" class="drop-news"><div><p>Weather News</p><p class="dropnews-para"></p></div></a></li>
+</div>
+
+
+<div class="news drop" data-number="2">
+<li class="news-watch"><a href="#" class="news-watch linked"   data-link="03">News</a><p>Coverage of top events from the world’s most trusted name in weather</p> 
+<span><a href="#"  class="linked" data-link="03">Watch News</a></span></li>
+
+<div>
+<li><a href="#"  class="linked" data-link="03">Weather News</a><p>Breaking news and top weather stories from around the globe</p></li>
+<li><a href="#">Podcast</a><p>Listen to behind-the-scenes details on trending weather topics</p></li>
+</div>
+
+<div>
+<li><a href="#">Weather blogs</a><p>Opinions on weather and climate by our top experts</p></li>
+<li><a href="#">Personalities</a><p>Meet the talent dedicated to bringing you the most accurate information</p></li>
+</div>
+
+<li class="news-video"><a href="#" class="drop-news"><div><p>Weather News</p><p class="dropnews-para"></p></div></a></li>
+</div>
+
+
+<div class="video drop" data-number="3">
+
+<li class="video-watch"><a href="#" class="video-watch">Video</a><p>Video coverage of the top weather events people are talking about</p>
+<span><a href="#">Watch Video</a></span></li>
+
+<div>
+<li><a href="#">Trending Now</a><p>Watch the best weather videos across the web</p></li>
+<li><a href="#">Expert Forecasts</a><p>How will the latest weather patterns impact you?</p></li>
+</div>
+
+<li><a href="#">Storm Chasers</a><p>Our field teams brave the elements</p></li>
+
+<li><a href="#" class="drop-news"><div><p>Weather News</p><p class="dropnews-para"></p></div></a></li>
+</div>
+
+
+<div class="weather drop" data-number="4"> 
+<li><a href="#">Severe <br> Weather</a></li>
+<li><a href="#">Hurricane</a><p>Everything you need for tracking hurricane season</p></li>
+<li><a href="#">AcuuWeather Ready</a><p>Be prepared for any type of weather</p></li>
+<li><a href="#" class="drop-news"><div><p>Weather News</p><p class="dropnews-para"></p></div></a></li>
+</div>
+
+<div class="more drop" data-number="5">
+<div>
+<li><a href="#">About AcuuWeather</a><p>Visit our Corporate Site for more info on AccuWeather</p></li>
+<li><a href="#">AcuuWeather Professional</a><p>Specialized Weather Centers, More of Everything with AccuWeather Professional</p></li>
+</div>
+
+<li><a href="#">Apps & Downloads</a><p>Download our free award-winning apps for Superior Accuracy™ on the go</p></li>
+<li><a href="#">AcuuWeather Premium</a><p>Explore More, Dive Deeper, Analyze Faster with AccuWeather Premium</p></li>
+
+<div>
+<li><a href="#"><i class="fa fa-facebook"></i><p>Facebook</p></a></li>
+<li><a href="#"><i class="fa fa-twitter"></i><p>Twitter</p></a></li>
+<li><a href="#"><i class="fa fa-instagram"></i><p>Instagram</p></a></li>
+<li><a href="#"><i class="fa fa-youtube"></i><p>Youtube</p></a></li>
+</div>
+</div>
+
+<div class="add-recent">
+<div class="current-loc">
+<span>Use Current Location</span>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+<div class="drop-recentloc">
+<h3>RECENT LOCATIONS</h3>
+<div><span></span><span><img><span></span></span></div>
+<div><span></span><span><img><span></span></span></div>
+<div><span></span><span><img><span></span></span></div>
+<div><span></span><span><img><span></span></span></div>
+<div><span></span><span><img><span></span></span></div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+<div class="container">
+<div class="column-one">
+<div class="map">
+<a href="#" class="linked" data-link="01">
+<p>WORLD WEATHER RADAR</p>
+<div id="maparea"></div>
+<div><span>SEE INTERACTIVE MAP</span>
+<span><i class="fa fa-angle-right"></i></span></div>
+</a>
+</div>
+
+
+<div class="city-weather">
+<p>WORLD WEATHER CONDITIONS</p>
+<div class="weather-col">
+<div class="weather-col-one">
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+</div>
+<div class="weather-col-two">
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+<div><p></p><img></img><span></span></div>
+</div>
+</div>
+</div>
+
+
+<div class="weather-news"></div>
+</div>
+
+
+<div class="column-two">
+<div class="top-stories">
+<div class="top-stories-head">Top Stories</div>
+<div class="stories-list">
+<li><a href="#"><div><h4>Weather News</h4><p></p><span></span></div></a></li>
+<li><a href="#"><div><h4>Weather News</h4><p></p><span></span></div></a></li>
+<li><a href="#"><div><h4>Weather News</h4><p></p><span></span></div></a></li>
+<li><a href="#"><div><h4>Weather News</h4><p></p><span></span></div></a></li>
+<li><a href="#"><div><h4>Weather News</h4><p></p><span></span></div></a></li></div>
+<div class="linked" data-link="03"><a href ="#">More stories</a></div>
+</div>
+</div>
+</div>
+
+<div class="btm-container">
+
+<div class="links">
+
+<div class="company">
+<div class="heading" data-type="01">
+<p>COMPANY</p><i class="fa fa-angle-down link-angle"></i></div>
+<div class="link-slide" data-type="01">
+<li><a href="#">Proven&nbsp;Superior&nbsp;Accuracy</a></li>
+<li><a href="#">About&nbsp;AcuuWeather</a></li>
+<li><a href="#">Digital&nbsp;Advertising</a></li>
+<li><a href="#">Careers</a></li>
+<li><a href="#">Press</a></li>
+<li><a href="#">Contact&nbsp;Us</a></li></div>
+</div>
+
+<div class="social-links">
+<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+</div>
+
+<div class="products">
+<div class="heading" data-type="02">
+<p>PRODUCTS&nbsp;&&nbsp;SERVICES</p><i class="fa fa-angle-down link-angle"></i></div>
+<div class="link-slide" data-type="02">
+<li><a href="#">For Business</a></li>
+<li><a href="#">For Partners</a></li>
+<li><a href="#">For Advertising</a></li>
+<li><a href="#">AcuuWeather APIs</a></li>
+<li><a href="#">Podcast</a></li></div>
+</div>
+<div class="services">
+<div class="apps">
+<div class="heading" data-type="03">
+<p>APPS&nbsp;&&nbsp;DOWNLOADS</p><i class="fa fa-angle-down link-angle"></i></div>
+<div class="link-slide" data-type="03">
+<li><a href="#">iPhone App</a></li>
+<li><a href="#">Andriod App</a></li>
+<li><a href="#">See all Apps & Downloads</a></li></div>
+</div>
+<div class="sub-services">
+<div class="heading" data-type="04">
+<p>SUBSCRIPTION&nbsp;SERVICES</p><i class="fa fa-angle-down link-angle"></i></div>
+<div class="link-slide" data-type="04">
+<li><a href="#">AcuuWeather Premium</a></li>
+<li><a href="#">AcuuWeather Professional</a></li></div>
+</div>
+</div>
+
+<div class="links-more">
+<div class="heading" data-type="05">
+<p>MORE</p><i class="fa fa-angle-down link-angle"></i></div>
+<div class="link-slide" data-type="05"><div>
+<li><a href="#">AcuuWeather Shop</a></li>
+<li><a href="#">AcuuWeather Ready</a></li>
+<li><a href="#">Business</a></li>
+<li><a href="#">Health</a></li>
+<li><a href="#">Hurricane</a></li>
+<li><a href="#">Leisure and Recreation</a></li>
+<li><a href="#">Severe Weather</a></li></div><div>
+<li><a href="#">Space and Astronomy</a></li>
+<li><a href="#">Sports</a></li>
+<li><a href="#">Travel</a></li>
+<li><a href="#">Weather News</a></li>
+<li><a href="#">Weather Blogs</a></li>
+<li><a href="#">Winter Weather</a></li></div></div>
+</div>
+</div>
+</div>
+
+<!--</div>-->
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+<script src="/Stack/acuu/header.js"></script>
+<script src="/Stack/acuu/container.js"></script>
+</body>
+</html>
