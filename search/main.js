@@ -215,49 +215,6 @@ for(let l = 0; l < headings.length; l++){
 
 
 
-
-//68dbdbef74114b7aa8374a67132e9bc9-NEWS API KEY
-//https://newsapi.org/v2/top-headlines?q=trump&apiKey=68dbdbef74114b7aa8374a67132e9bc9-query about a top
-
-/*
-const currentPos = document.querySelector('.pos');
-const input = document.querySelector(".place");
-
-
-input.addEventListener('keyup', (e)=>{
-  if(e.keyCode === 13){
-    e.preventDefault();
-    let inputVal = input.value;
-    if(input.value.length > 0){
-    //const proxy = `https://cors-anywhere.herokuapp.com/`;
-    const api = `http://api.openweathermap.org/geo/1.0/direct?q=${inputVal}&limit=4&appid=d42ebd3b4c60cb869471de00eb03f3e2`;
-    fetch(api)
-    .then((response) =>{
-      return response.json();
-    })
-    .then((data)=>{
-      console.log(data);
-      const {lat, lon}= data[0]; //use instead of data.properties
-      const apitwo = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=d42ebd3b4c60cb869471de00eb03f3e2`;
-      fetch(apitwo)
-      .then (response =>{
-        return response.json();
-      })
-      .then(i=>{
-        console.log(i);
-      })
-      const mymap = L.map('maparea').setView([lat, lon], 13);
-const attribution =  `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> `;
-const tileUrl = `https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`;
-const tiles = L.tileLayer(tileUrl, {attribution});
-tiles.addTo(mymap);
-    })
-  
-    }
-  }
-})*/
-
-
 window.addEventListener('load', ()=> {
 
 let long;
@@ -294,63 +251,4 @@ function drawLocationMap(lat, long){
     tiles.addTo(mymap);
   
 }
-
-/*const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude={part}&appid=d42ebd3b4c60cb869471de00eb03f3e2`;
-fetch(api)
-.then((response) =>{
-  return response.json();
-}
-)
-.then((data)=>{
-  console.log(data);
-})
-
-
-});
-}
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*ask.addEventListener('submit', ()=>{
-  if(input.length > 0){
-    console.log(input);
-  //const api = `http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit={limit}&appid=d42ebd3b4c60cb869471de00eb03f3e2`;
-  /*fetch(api)
-  .then((response) =>{
-    return response.json();
-  })
-  .then((data)=>{
-    console.log(data);
-  })
-  }
-  
-})*/
-
-
-
-
-
-
-
 
