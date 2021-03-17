@@ -926,8 +926,23 @@ div .nav .nav-right{
         0%{opacity: 0; max-height: 0%;}
         100%{opacity: 1; max-height: 100%;}
     }
-
     
+    @-webkit-keyframes opacity{
+        0%{opacity: 0; max-height: 0%;}
+        100%{opacity: 1; max-height: 100%;}
+    }
+    
+    
+    @-moz-keyframes opacity{
+        0%{opacity: 0; max-height: 0%;}
+        100%{opacity: 1; max-height: 100%;}
+    }
+    
+    
+    @-o-keyframes opacity{
+        0%{opacity: 0; max-height: 0%;}
+        100%{opacity: 1; max-height: 100%;}
+    }
 
     .overlay div ul li a,
     .overlay div ul li p{
